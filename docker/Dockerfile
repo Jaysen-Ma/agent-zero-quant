@@ -1,8 +1,5 @@
 # Use the latest slim version of Debian
-FROM --platform=$TARGETPLATFORM debian:bookworm-slim
-
-# Set ARG for platform-specific commands
-ARG TARGETPLATFORM
+FROM debian:bookworm-slim
 
 # Update and install necessary packages
 RUN apt-get update && apt-get install -y \
@@ -23,6 +20,7 @@ RUN mkdir /var/run/sshd && \
 # Create and activate Python virtual environment
 ENV VIRTUAL_ENV=/opt/venv
 RUN python3 -m venv $VIRTUAL_ENV
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
 # Copy initial .bashrc with virtual environment activation to a temporary location
 COPY .bashrc /etc/skel/.bashrc
@@ -31,8 +29,12 @@ COPY .bashrc /etc/skel/.bashrc
 COPY initialize.sh /usr/local/bin/initialize.sh
 RUN chmod +x /usr/local/bin/initialize.sh
 
-# Ensure the virtual environment and pip setup
-RUN $VIRTUAL_ENV/bin/pip install --upgrade pip
+# Copy requirements file
+COPY quant_requirements.txt .
+
+# Install Python Quant packages
+RUN pip install --upgrade pip && \
+    pip install -r quant_requirements.txt
 
 # Expose SSH port
 EXPOSE 22

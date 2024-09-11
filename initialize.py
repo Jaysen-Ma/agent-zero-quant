@@ -4,7 +4,7 @@ from agent import AgentConfig
 def initialize():
     
     # main chat model used by agents (smarter, more accurate)
-    chat_llm = models.get_openai_chat(model_name="gpt-4-turbo", temperature=0.1)
+    chat_llm = models.get_openai_chat(model_name="gpt-4o", temperature=0.1)
     # chat_llm = models.get_ollama_chat(model_name="gemma2:latest", temperature=0)
     # chat_llm = models.get_lmstudio_chat(model_name="TheBloke/Mistral-7B-Instruct-v0.2-GGUF", temperature=0)
     # chat_llm = models.get_openrouter(model_name="meta-llama/llama-3-8b-instruct:free")
@@ -43,7 +43,7 @@ def initialize():
         # response_timeout_seconds = 60,
         code_exec_docker_enabled = True,
         # code_exec_docker_name = "agent-zero-exe",
-        # code_exec_docker_image = "frdel/agent-zero-exe:latest",
+        code_exec_docker_image = "noisymeow/agent-zero-quant:latest",
         # code_exec_docker_ports = { "22/tcp": 50022 }
         # code_exec_docker_volumes = { files.get_abs_path("work_dir"): {"bind": "/root", "mode": "rw"} }
         code_exec_ssh_enabled = True,

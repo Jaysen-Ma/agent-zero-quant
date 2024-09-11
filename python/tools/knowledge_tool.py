@@ -8,7 +8,7 @@ from python.helpers.print_style import PrintStyle
 from python.helpers.errors import handle_error
 
 class Knowledge(Tool):
-    async def execute(self, question="", **kwargs):
+    async def execute(self, question="", **kwargs) -> Response:
         with concurrent.futures.ThreadPoolExecutor() as executor:
             # Schedule the two functions to be run in parallel
 
