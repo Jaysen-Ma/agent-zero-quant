@@ -45,7 +45,7 @@ class DeferredTask:
         if not self._future:
             raise RuntimeError("Task hasn't been started")
         try:
-            return self._future.result(timeout)
+            return self._future.result(timeout)  # Get the result synchronously
         except TimeoutError:
             raise TimeoutError("The task did not complete within the specified timeout.")
 

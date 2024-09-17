@@ -85,40 +85,37 @@ class AgentContext:
 
 @dataclass
 class AgentConfig:
-    chat_model: BaseChatModel | BaseLLM
-    utility_model: BaseChatModel | BaseLLM
-    embeddings_model: Embeddings
-    prompts_subdir: str = ""
-    memory_subdir: str = ""
-    knowledge_subdir: str = ""
-    auto_memory_count: int = 3
-    auto_memory_skip: int = 2
-    rate_limit_seconds: int = 60
-    rate_limit_requests: int = 15
-    rate_limit_input_tokens: int = 0
-    rate_limit_output_tokens: int = 0
-    msgs_keep_max: int = 25
-    msgs_keep_start: int = 5
-    msgs_keep_end: int = 10
-    response_timeout_seconds: int = 60
-    max_tool_response_length: int = 3000
-    code_exec_docker_enabled: bool = True
-    code_exec_docker_name: str = "agent-zero-exe"
-    code_exec_docker_image: str = "frdel/agent-zero-exe:latest"
-    code_exec_docker_ports: dict[str, int] = field(
-        default_factory=lambda: {"22/tcp": 50022}
-    )
-    code_exec_docker_volumes: dict[str, dict[str, str]] = field(
-        default_factory=lambda: {
-            files.get_abs_path("work_dir"): {"bind": "/root", "mode": "rw"}
-        }
-    )
-    code_exec_ssh_enabled: bool = True
-    code_exec_ssh_addr: str = "localhost"
-    code_exec_ssh_port: int = 50022
-    code_exec_ssh_user: str = "root"
-    code_exec_ssh_pass: str = "toor"
-    additional: Dict[str, Any] = field(default_factory=dict)
+    chat_model: BaseChatModel | BaseLLM  # The main language model used for chat interactions
+    utility_model: BaseChatModel | BaseLLM  # A secondary model used for utility functions, potentially cheaper or faster
+    embeddings_model: Embeddings  # Model used for creating embeddings, typically for memory or search functions
+    prompts_subdir: str = ""  # Subdirectory for custom prompts, allows for prompt customization
+    memory_subdir: str = ""  # Subdirectory for memory-related files or data
+    knowledge_subdir: str = ""  # Subdirectory for knowledge base or additional data
+    auto_memory_count: int = 3  # Number of automatic memory retrievals
+    auto_memory_skip: int = 2  # Number of interactions to skip before next automatic memory retrieval
+    rate_limit_seconds: int = 60  # Time window for rate limiting in seconds
+    rate_limit_requests: int = 15  # Maximum number of requests allowed within the rate limit window
+    rate_limit_input_tokens: int = 0  # Maximum number of input tokens allowed (0 means no limit)
+    rate_limit_output_tokens: int = 0  # Maximum number of output tokens allowed (0 means no limit)
+    msgs_keep_max: int = 25  # Maximum number of messages to keep in history
+    msgs_keep_start: int = 5  # Number of messages to always keep at the start of history
+    msgs_keep_end: int = 10  # Number of messages to always keep at the end of history
+    response_timeout_seconds: int = 60  # Timeout for waiting for a response from the model
+    max_tool_response_length: int = 3000  # Maximum length of tool responses
+    code_exec_docker_enabled: bool = True  # Whether to enable code execution in a Docker container
+    code_exec_docker_name: str = "agent-zero-quant-container"  # Name of the Docker container for code execution
+    code_exec_docker_image: str = "noisymeow/agent-zero-quant:latest"  # Docker image to use for code execution
+    code_exec_docker_ports: dict[str,int] = field(default_factory=lambda: {"22/tcp": 50022})  # Port mapping for the Docker container
+    code_exec_docker_volumes: dict[str, dict[str, str]] = field(default_factory=lambda: {
+        files.get_abs_path("work_dir"): {"bind": "/root", "mode": "rw"},
+        files.get_abs_path("TimeSeriesDB"): {"bind": "/data/TimeSeriesDB", "mode": "r"}
+    })  # Volume mapping for the Docker container
+    code_exec_ssh_enabled: bool = True  # Whether to enable SSH for code execution
+    code_exec_ssh_addr: str = "localhost"  # SSH address for code execution
+    code_exec_ssh_port: int = 50022  # SSH port for code execution
+    code_exec_ssh_user: str = "root"  # SSH username for code execution
+    code_exec_ssh_pass: str = "toor"  # SSH password for code execution
+    additional: Dict[str, Any] = field(default_factory=dict)  # Additional configuration options as a dictionary
 
 
 # intervention exception class - skips rest of message loop iteration

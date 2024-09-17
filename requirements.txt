@@ -21,3 +21,7 @@ pypdf==4.3.1
 Flask[async]==3.0.3
 Flask-BasicAuth==0.2.0
 faiss-cpu==1.8.0.post1
+vectorbt==0.26.2
+yfinance==0.2.43
+pandas_ta==0.3.14b0
+backtrader==1.9.78.123
