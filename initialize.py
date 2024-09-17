@@ -17,7 +17,7 @@ def initialize():
     utility_llm = models.get_openai_chat(model_name="gpt-4o", temperature=0.1) # change if you want to use a different utility model
 
     # embedding model used for memory
-    embedding_llm = models.get_openai_embedding(model_name="text-embedding-3-small")
+    # embedding_llm = models.get_openai_embedding(model_name="text-embedding-3-small")
     embedding_llm = models.get_huggingface_embedding(model_name="FinLang/finance-embeddings-investopedia")
     # embedding_llm = models.get_ollama_embedding(model_name="nomic-embed-text")
     # embedding_llm = models.get_huggingface_embedding(model_name="sentence-transformers/all-MiniLM-L6-v2")
@@ -42,10 +42,13 @@ def initialize():
         max_tool_response_length = 3000,
         # response_timeout_seconds = 60,
         code_exec_docker_enabled = True,
-        # code_exec_docker_name = "agent-zero-exe",
+        code_exec_docker_name = "agent-zero-quant-container",
         code_exec_docker_image = "noisymeow/agent-zero-quant:latest",
         # code_exec_docker_ports = { "22/tcp": 50022 }
-        # code_exec_docker_volumes = { files.get_abs_path("work_dir"): {"bind": "/root", "mode": "rw"} }
+        # code_exec_docker_volumes = {
+        # files.get_abs_path("work_dir"): {"bind": "/root", "mode": "rw"},
+        # files.get_abs_path("TimeSeriesDB"): {"bind": "/data/TimeSeriesDB", "mode": "r"}
+        # }
         code_exec_ssh_enabled = True,
         # code_exec_ssh_addr = "localhost",
         # code_exec_ssh_port = 50022,

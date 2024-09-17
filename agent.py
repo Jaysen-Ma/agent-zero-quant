@@ -97,10 +97,13 @@ class AgentConfig:
     response_timeout_seconds: int = 60  # Timeout for waiting for a response from the model
     max_tool_response_length: int = 3000  # Maximum length of tool responses
     code_exec_docker_enabled: bool = True  # Whether to enable code execution in a Docker container
-    code_exec_docker_name: str = "agent-zero-exe"  # Name of the Docker container for code execution
+    code_exec_docker_name: str = "agent-zero-quant-container"  # Name of the Docker container for code execution
     code_exec_docker_image: str = "noisymeow/agent-zero-quant:latest"  # Docker image to use for code execution
     code_exec_docker_ports: dict[str,int] = field(default_factory=lambda: {"22/tcp": 50022})  # Port mapping for the Docker container
-    code_exec_docker_volumes: dict[str, dict[str, str]] = field(default_factory=lambda: {files.get_abs_path("work_dir"): {"bind": "/root", "mode": "rw"}})  # Volume mapping for the Docker container
+    code_exec_docker_volumes: dict[str, dict[str, str]] = field(default_factory=lambda: {
+        files.get_abs_path("work_dir"): {"bind": "/root", "mode": "rw"},
+        files.get_abs_path("TimeSeriesDB"): {"bind": "/data/TimeSeriesDB", "mode": "r"}
+    })  # Volume mapping for the Docker container
     code_exec_ssh_enabled: bool = True  # Whether to enable SSH for code execution
     code_exec_ssh_addr: str = "localhost"  # SSH address for code execution
     code_exec_ssh_port: int = 50022  # SSH port for code execution
