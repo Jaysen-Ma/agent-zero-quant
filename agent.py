@@ -108,7 +108,7 @@ class AgentConfig:
     code_exec_docker_ports: dict[str,int] = field(default_factory=lambda: {"22/tcp": 50022})  # Port mapping for the Docker container
     code_exec_docker_volumes: dict[str, dict[str, str]] = field(default_factory=lambda: {
         files.get_abs_path("work_dir"): {"bind": "/root", "mode": "rw"},
-        files.get_abs_path("TimeSeriesDB"): {"bind": "/data/TimeSeriesDB", "mode": "r"}
+        files.get_abs_path("TimeSeriesDB"): {"bind": "/data/TimeSeriesDB", "mode": "rw"}
     })  # Volume mapping for the Docker container
     code_exec_ssh_enabled: bool = True  # Whether to enable SSH for code execution
     code_exec_ssh_addr: str = "localhost"  # SSH address for code execution

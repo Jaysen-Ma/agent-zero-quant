@@ -1,0 +1,100 @@
+{
+    "data_retrieval": {
+        "database": {
+            "type": "ArcticDB",
+            "connection_string": "lmdb://data/TimeSeriesDB",
+            "library": "symbol_specific",
+            "default_bindings": {
+                "work_dir": {
+                    "bind": "/root",
+                    "mode": "rw"
+                },
+                "TimeSeriesDB": {
+                    "bind": "/data/TimeSeriesDB",
+                    "mode": "rw"
+                }
+            }
+        },
+        "symbols": [
+            "HK50", "DJ30", "USDX", "CHINA50ft", "TRXUSD", "USDZAR", "NG-C",
+            "USDKRW", "SOLUSD", "COR", "Wheat-C", "EUB10Y", "USDHUF",
+            "DJ30ft", "BTCUSD", "Sugar-C", "BTCBCH", "USDMXN", "IBM",
+            "MKRUSD", "Cocoa-C", "EXXON", "MSFT", "BNBUSD", "USDCZK",
+            "USDBRL", "DOGUSD", "CHINA50", "USDCOP", "TSM", "EURUSD",
+            "NZDUSD", "META", "USNote10Y", "USDCNH", "INCUSD", "ORCL",
+            "FRA40", "EURIBOR3M", "USDTWD", "USDPLN", "VIX", "UNIUSD",
+            "INTEL", "BAIDU", "Soybean-C", "XPDUSD", "XPTUSD", "LOGC",
+            "AXSUSD", "EUB5Y", "TSLA", "USDCHF", "XLMUSD", "FI",
+            "EUB30Y", "LRCUSD", "Nikkei225", "USDSGD", "FRA40ft",
+            "HK50ft", "BOEING", "DOTUSD", "EUB2Y", "SHELL", "UK100ft",
+            "FILUSD", "ES35", "SGP20", "JPN225ft", "XTZUSD", "USDIDR",
+            "OJ-C", "CL-OIL", "USDTRY", "EOSUSD", "ADAUSD", "XRPUSD",
+            "LongGilt", "UK100", "NAS100", "COPPER-C", "USDCLP", "NVIDIA",
+            "SANUSD", "USDNOK", "ETCUSD", "BTCETH", "USDTHB", "ALGUSD",
+            "IOTUSD", "BCHUSD", "ONEUSD", "NAS100ft", "ATMUSD", "BATUSD",
+            "GER40ft", "PG", "GASOIL-C", "ETHUSD", "AUDUSD", "CISCO",
+            "AVAUSD", "SP500ft", "GOOG", "GAS-C", "COIN", "GRTUSD",
+            "USDSEK", "AMAZON", "SP500", "SNOW", "USDHKD", "LTCUSD",
+            "XAUUSD", "XAGUSD", "CRVUSD", "GBPUSD", "PFIZER", "HKTECH",
+            "USDJPY", "SHBUSD", "NERUSD", "UKOUSD", "NEOUSD", "GER40",
+            "USDCAD", "ZECUSD", "US2000", "VISA", "USDINR", "ALIBABA",
+            "UKOUSDft", "USDDKK", "Coffee-C", "USOUSD", "TOYOTA",
+            "LNKUSD", "EU50", "SUSUSD", "AAPL", "Cotton-C"
+        ],
+        "data_structure": {
+            "columns": [
+                "open", "high", "low", "close", "tick_volume", "spread",
+                "returns", "log_returns", "minute", "hour", "day",
+                "day_of_week", "minutes_in_bucket", "SMA_10", "SMA_20",
+                "SMA_50", "SMA_100", "EMA_10", "EMA_20", "EMA_50",
+                "EMA_100", "WMA_10", "WMA_20", "WMA_50", "WMA_100",
+                "RSI_14", "RSI_21", "MACD_12_26_9_MACD_12_26_9",
+                "MACD_12_26_9_MACDh_12_26_9", "MACD_12_26_9_MACDs_12_26_9",
+                "MACD_12_26_18_MACD_12_26_18",
+                "MACD_12_26_18_MACDh_12_26_18",
+                "MACD_12_26_18_MACDs_12_26_18",
+                "MACD_12_52_9_MACD_12_52_9",
+                "MACD_12_52_9_MACDh_12_52_9",
+                "MACD_12_52_9_MACDs_12_52_9",
+                "MACD_12_52_18_MACD_12_52_18",
+                "MACD_12_52_18_MACDh_12_52_18",
+                "MACD_12_52_18_MACDs_12_52_18",
+                "MACD_24_26_9_MACD_24_26_9",
+                "MACD_24_26_9_MACDh_24_26_9",
+                "MACD_24_26_9_MACDs_24_26_9",
+                "MACD_24_26_18_MACD_24_26_18",
+                "MACD_24_26_18_MACDh_24_26_18",
+                "MACD_24_26_18_MACDs_24_26_18",
+                "MACD_24_52_9_MACD_24_52_9",
+                "MACD_24_52_9_MACDh_24_52_9",
+                "MACD_24_52_9_MACDs_24_52_9",
+                "MACD_24_52_18_MACD_24_52_18",
+                "MACD_24_52_18_MACDh_24_52_18",
+                "MACD_24_52_18_MACDs_24_52_18",
+                "STOCH_14_3_STOCHk_14_3_3",
+                "STOCH_14_3_STOCHd_14_3_3",
+                "STOCH_14_6_STOCHk_14_6_3",
+                "STOCH_14_6_STOCHd_14_6_3",
+                "STOCH_21_3_STOCHk_21_3_3",
+                "STOCH_21_3_STOCHd_21_3_3",
+                "STOCH_21_6_STOCHk_21_6_3",
+                "STOCH_21_6_STOCHd_21_6_3",
+                "BBANDS_20_2_BBL_20_2.0",
+                "BBANDS_20_2_BBM_20_2.0",
+                "BBANDS_20_2_BBU_20_2.0",
+                "BBANDS_20_2_BBB_20_2.0",
+                "BBANDS_20_2_BBP_20_2.0",
+                "BBANDS_30_2_BBL_30_2.0",
+                "BBANDS_30_2_BBM_30_2.0",
+                "BBANDS_30_2_BBU_30_2.0",
+                "BBANDS_30_2_BBB_30_2.0",
+                "BBANDS_30_2_BBP_30_2.0",
+                "ATR_14", "ATR_21", "Volatility_20",
+                "Volatility_50", "OBV", "CMF_20", "CMF_30",
+                "Log_Returns", "Pct_Change_1", "Pct_Change_5",
+                "Pct_Change_10", "Z_Score_20", "Z_Score_50"
+            ],
+            "description": "Each symbol's dataframe contains standard financial and technical indicator columns as listed."
+        }
+    }
+}

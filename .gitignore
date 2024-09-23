@@ -28,5 +28,10 @@ tmp/*
 
 # Ignore all contents of the directory "knowledge"
 knowledge/*
-# But do not ignore the directory itself
+# Except two files
 !knowledge/.gitkeep
+
+# Ignore all contents of the directory "TimeSeriesDB"
+TimeSeriesDB/*
+# But do not ignore the directory itself
+!TimeSeriesDB/.gitkeep

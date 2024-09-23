@@ -158,18 +158,18 @@ IMPORTANT!: Always check your code for any placeholder IDs or demo data that nee
 Do not use in combination with other tools except for thoughts. Wait for response before using other tools.
 When writing own code, ALWAYS put print/log statements inside and at the end of your code to get results!
 **Example usages:**
-1. Execute python code
+1. Preparing the data from ArcticDB
 ~~~json
 {
     "thoughts": [
-        "I need to do...",
-        "I can use library...",
-        "Then I can...",
+        "I have retrieved the template for building and backtesting a trading strategy using Catboost.",
+        "The template includes steps for data preparation, model training, model evaluation, and backtesting.",
+        "I will start by preparing the data from ArcticDB."
     ],
     "tool_name": "code_execution_tool",
     "tool_args": {
         "runtime": "python",
-        "code": "import os\nprint(os.getcwd())",
+        "code": "import arcticdb as adb\nimport pandas as pd\n\n# Connect to ArcticDB\narctic = adb.Arctic('lmdb://data/TimeSeriesDB')\n\n# Load data from ArcticDB\nlib = arctic.get_library('symbol_specific')\nsymbol = 'BTCUSD'  # Example symbol, replace with actual symbol\nraw_data = lib.read(symbol).data\n\n# Display the first few rows of the data\nprint(raw_data.head())"
     }
 }
 ~~~

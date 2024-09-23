@@ -7,7 +7,7 @@ def initialize():
     chat_llm = models.get_openai_chat(model_name="gpt-4o", temperature=0.1)
     # chat_llm = models.get_ollama_chat(model_name="gemma2:latest", temperature=0)
     # chat_llm = models.get_lmstudio_chat(model_name="lmstudio-community/Meta-Llama-3.1-8B-Instruct-GGUF", temperature=0)
-    # chat_llm = models.get_openrouter_chat(model_name="mattshumer/reflection-70b:free")
+    # chat_llm = models.get_openrouter_chat(model_name="openai/o1-mini")
     # chat_llm = models.get_azure_openai_chat(deployment_name="gpt-4o-mini", temperature=0)
     # chat_llm = models.get_anthropic_chat(model_name="claude-3-5-sonnet-20240620", temperature=0)
     # chat_llm = models.get_google_chat(model_name="gemini-1.5-flash", temperature=0)
@@ -48,7 +48,7 @@ def initialize():
         # code_exec_docker_ports = { "22/tcp": 50022 }
         # code_exec_docker_volumes = {
         # files.get_abs_path("work_dir"): {"bind": "/root", "mode": "rw"},
-        # files.get_abs_path("TimeSeriesDB"): {"bind": "/data/TimeSeriesDB", "mode": "r"}
+        # files.get_abs_path("TimeSeriesDB"): {"bind": "/data/TimeSeriesDB", "mode": "rw"}
         # }
         code_exec_ssh_enabled = True,
         # code_exec_ssh_addr = "localhost",
