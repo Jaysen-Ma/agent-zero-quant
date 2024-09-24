@@ -164,12 +164,12 @@ When writing own code, ALWAYS put print/log statements inside and at the end of 
     "thoughts": [
         "I have retrieved the template for building and backtesting a trading strategy using Catboost.",
         "The template includes steps for data preparation, model training, model evaluation, and backtesting.",
-        "I will start by preparing the data from ArcticDB."
+        "I will start by preparing the data from ArcticDB by using the DataStore class with environment variables ..."
     ],
     "tool_name": "code_execution_tool",
     "tool_args": {
         "runtime": "python",
-        "code": "import arcticdb as adb\nimport pandas as pd\n\n# Connect to ArcticDB\narctic = adb.Arctic('lmdb://data/TimeSeriesDB')\n\n# Load data from ArcticDB\nlib = arctic.get_library('symbol_specific')\nsymbol = 'BTCUSD'  # Example symbol, replace with actual symbol\nraw_data = lib.read(symbol).data\n\n# Display the first few rows of the data\nprint(raw_data.head())"
+        "code": "import arcticdb as adb\nimport pandas as pd\n ..."
     }
 }
 ~~~

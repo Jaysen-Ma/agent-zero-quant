@@ -35,3 +35,8 @@ knowledge/*
 TimeSeriesDB/*
 # But do not ignore the directory itself
 !TimeSeriesDB/.gitkeep
+
+# Ignore all contents of the directory "TimeSeriesDB"
+AWS_keys/*
+# But do not ignore the directory itself
+!AWS_keys/sample.env

@@ -48,7 +48,7 @@ def initialize():
         # code_exec_docker_ports = { "22/tcp": 50022 }
         # code_exec_docker_volumes = {
         # files.get_abs_path("work_dir"): {"bind": "/root", "mode": "rw"},
-        # files.get_abs_path("TimeSeriesDB"): {"bind": "/data/TimeSeriesDB", "mode": "rw"}
+        # files.get_abs_path("AWS_keys/.env"): {"bind": "/app/.env", "mode": "ro"},
         # }
         code_exec_ssh_enabled = True,
         # code_exec_ssh_addr = "localhost",
