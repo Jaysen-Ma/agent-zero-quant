@@ -1,4 +1,4 @@
-# Agent Zero
+# Agent Zero - Quant
 
 [![](https://img.shields.io/badge/GitHub-Agent%20Zero-5865F2?style=for-the-badge&logo=github&logoColor=white)](https://github.com/frdel/agent-zero)
 
@@ -6,6 +6,20 @@
 - Dynamic, organically growing, and learning as you use it.
 - Fully transparent, readable, comprehensible, customizable, and interactive.
 - Uses the computer as a tool to accomplish tasks.
+
+## AI Quant Enhancements
+
+1. **Docker Image with Quant and ML Libraries**
+- A Docker image with common quant and ML libraries pre-installed has been created. This allows the AI to write quant code more efficiently without needing to `pip install` the packages, saving thousands of tokens and accelerating the workflow.
+
+2. **Access to Time Series Data with AWS S3**
+- The AI can access time series data stored in S3 bucket, if you provide the access keys in the .env under the AWS_keys folder. This enables the development of strategies for intra-day trading, not just daily data by using yfinance.
+
+3. **Knowledge of Time Series Data Structure**
+- The structure of the time series data is provided as knowledge to facilitate the AI in retrieving data of interest. Other users will need to edit this document if they use a different data infrastructure.
+
+4. **Iterative Code Execution and Debugging**
+- The AI can iteratively prompt, execute, and debug its own code using terminal output as feedback. This iterative process enhances the AI's ability to refine and optimize trading strategies. Examples of AI-built trading strategies can be found at https://github.com/Jaysen-Ma/AI-built-trading-strategies/tree/main.
 
 ## Key concepts
 1. **General-purpose assistant**
@@ -44,15 +58,4 @@
 - **Internet access**: Required for online knowledge tool and commands.
 
 ## Setup
-A detailed setup guide with a video can be found here: [/docs/installation](https://github.com/frdel/agent-zero/tree/main/docs/installation).
-
-## AI Quant Enhancements
-
-1. **Docker Image with Quant and ML Libraries**
-- A Docker image with common quant and ML libraries pre-installed has been created. This allows the AI to write quant code more efficiently without needing to `pip install` the packages, saving thousands of tokens and accelerating the workflow.
-
-2. **Access to Time Series Data with ArcticDB**
-- The AI can now access time series data stored locally with ArcticDB. This enables the development of strategies for intra-day trading, not just daily data. Note that the time series data has not been uploaded to this repository.
-
-3. **Knowledge of Time Series Data Structure**
-- The structure of the time series data is provided as knowledge to facilitate the AI in retrieving data of interest. Other users will need to edit this document if they use a different data infrastructure.
+A detailed setup guide will be provided.
