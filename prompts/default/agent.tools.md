@@ -158,18 +158,24 @@ IMPORTANT!: Always check your code for any placeholder IDs or demo data that nee
 Do not use in combination with other tools except for thoughts. Wait for response before using other tools.
 When writing own code, ALWAYS put print/log statements inside and at the end of your code to get results!
 **Example usages:**
-1. Preparing the data from ArcticDB
+1. Develop trading strategies:
 ~~~json
 {
     "thoughts": [
-        "I have retrieved the template for building and backtesting a trading strategy using Catboost.",
-        "The template includes steps for data preparation, model training, model evaluation, and backtesting.",
-        "I will start by preparing the data from ArcticDB by using the DataStore class with environment variables ..."
+        "The user has requested to develop a trading strategy ...",
+        "There is already a DataStore class for me to retrieve 1 minute data for a various of symbols. I can retrieve the data with DataStore().retrieve_data(symbol) ...",
+        "Given 1 minute interval data, I decided to focus on short-term trading fully utilising the data ...",
+        "I have to determine the time range, features and symbols needed as data ...",
+        "I have to define the entry and exit signals, and decide on position sizing ...",
+        "I have to implement protective measures, including stop-loss and take-profit orders ...",
+        "I will test this strategy with the backtrader library ...",
+        "I will write the necessary components into modules to avoid clustering, the components can be saved individually in my working directory so I can import them ...",
+        "I will save the code into my working directory if it has not been saved, or edit it to the latest version ...",
     ],
     "tool_name": "code_execution_tool",
     "tool_args": {
         "runtime": "python",
-        "code": "import arcticdb as adb\nimport pandas as pd\n ..."
+        "code": "import backtrader as bt\nfrom data_store import DataStore\n ...",
     }
 }
 ~~~
